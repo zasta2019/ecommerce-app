@@ -1,32 +1,32 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import Checkbox from 'expo-checkbox';
-import * as Font from 'expo-font';
+import { useState } from 'react';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 
-let customFonts = {
-  "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
-   "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
-};
+export default function Signup(props) {
+  const [isChecked, setChecked] = useState(false);
+  const [fontsLoaded]= useFonts({
+    "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
+    "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
+  });
 
-export default class Signup extends React.Component {
-  
-  state = {
-    fontsLoaded: false,
-  };
-
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
-  }
-
-  componentDidMount() {
-    this._loadFontsAsync();
-  }
-
-  render() {
-    if (!this.state.fontsLoaded) {
-      return null;
+  useEffect (() =>{
+    async function prepare(){
+      await SplashScreen.preventAutoHideAsync();
     }
+    prepare();
+  },[]);
+
+  if(!fontsLoaded){
+    return undefined;
+  }
+  else{
+    SplashScreen.hideAsync();
+  }
+  
   return (
     <ScrollView style={styles.maincontainer}>
     <View>
@@ -49,14 +49,14 @@ export default class Signup extends React.Component {
       </View>
       <View style={{marginTop:20}}>
       <View style={styles.flex}>
-        <Checkbox style={styles.checkbox}/>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
         <View style={styles.flexchecktext}>
         <Text style={styles.checktext}>I agree the terms & conditions and</Text>
         <TouchableOpacity activeOpacity={0.6}><Text style={styles.checktextlink}>Privacy Policy</Text></TouchableOpacity>
         </View>
       </View>
       <View style={styles.flex}>
-        <Checkbox style={styles.checkbox} />
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
         <Text style={styles.checktext}>I Would like to get more offers from Trypling</Text>
       </View>
       </View>
@@ -78,7 +78,7 @@ export default class Signup extends React.Component {
     </ScrollView>
   );
 }
-}
+
 
 const styles = StyleSheet.create({
   circle: {

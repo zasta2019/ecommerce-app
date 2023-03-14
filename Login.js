@@ -1,30 +1,31 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import Checkbox from 'expo-checkbox';
-import * as Font from 'expo-font';
+import { useState } from 'react';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
 
-let customFonts = {
-  "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
-   "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
-};
-export default class Login extends React.Component {
-  state = {
-    fontsLoaded: false,
-  };
+export default function Login(props) {
+  const [isChecked, setChecked] = useState(false);
+  const [fontsLoaded]= useFonts({
+    "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
+    "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
+  });
 
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
+  useEffect (() =>{
+    async function prepare(){
+      await SplashScreen.preventAutoHideAsync();
+    }
+    prepare();
+  },[]);
+
+  if(!fontsLoaded){
+    return undefined;
   }
-
-  componentDidMount() {
-    this._loadFontsAsync();
+  else{
+    SplashScreen.hideAsync();
   }
-
-  render() {
-    if (!this.state.fontsLoaded) {
-      return null;
-    };
   
   return (
     <ScrollView style={styles.maincontainer}>
@@ -44,7 +45,7 @@ export default class Login extends React.Component {
         </TouchableOpacity>
       </View>
       <View style={styles.flex}>
-        <Checkbox style={styles.checkbox} />
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
         <Text style={styles.checktext}>Remember my device as logged in</Text>
       </View>
       <TouchableOpacity activeOpacity={0.6}>
@@ -94,7 +95,6 @@ export default class Login extends React.Component {
     </View>
     </ScrollView>
   );
-}
 }
 const styles = StyleSheet.create({
   circle: {

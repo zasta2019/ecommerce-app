@@ -19,6 +19,8 @@ import Login from './Login';
 import Account from './Account';
 import Security from './Security';
 import Returns from './Returns';
+import Coupon from './Coupon';
+import Address from './Address';
 
 
 const Stack = createNativeStackNavigator();
@@ -26,7 +28,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Returns" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Account" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -40,10 +42,12 @@ function App() {
         <Stack.Screen name="Men" component={Men} />
         <Stack.Screen name="Women" component={Women} />
         <Stack.Screen name="Kids" component={Kids} />
+        <Stack.Screen name="Address" component={Address} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Account" component={Account} />
         <Stack.Screen name="Security" component={Security} />
         <Stack.Screen name="Returns" component={Returns} />
+        <Stack.Screen name="Coupon" component={Coupon} />
       </Stack.Navigator>
     </NavigationContainer>
   );

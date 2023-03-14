@@ -61,14 +61,14 @@ export default function Security(props) {
         <TextInput secureTextEntry={true} style={styles.inputfield} />
         </View>
         <View style={styles.flex}>
-      <Pressable style={styles.secondary}>
-      <TouchableOpacity activeOpacity={0.6}>
-        <Text style={styles.secondarytext}>Cancel</Text>
-        </TouchableOpacity>
-      </Pressable>
       <Pressable style={styles.button}>
       <TouchableOpacity activeOpacity={0.6}>
         <Text style={styles.text} onPress={() => setModalVisible(true)}>Save</Text>
+        </TouchableOpacity>
+      </Pressable>
+      <Pressable style={styles.secondary}>
+      <TouchableOpacity activeOpacity={0.6}>
+        <Text style={styles.secondarytext}>Cancel</Text>
         </TouchableOpacity>
       </Pressable>
         </View>
