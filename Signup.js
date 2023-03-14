@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     color: "#323232",
   },
   textfield: {
-    fontFamily: "Lato-Regular",
+    fontFamily: "Lato-Bold",
     fontSize: 16,
     fontWeight: "600",
     marginLeft: 40,
