@@ -70,7 +70,7 @@ export default function Signup(props) {
       <View style={styles.flextext}>
       <Text style={styles.accounttext}>Have an Account?</Text>
       <TouchableOpacity activeOpacity={0.6}>
-          <Text style={styles.clicktext} onPress={ () => this.props.navigation.navigate("Login")}>Sign In</Text>
+          <Text style={styles.clicktext} onPress={ () => props.navigation.navigate("Login")}>Sign In</Text>
         </TouchableOpacity>
       </View>
       <Image style={styles.leftcircle} source={require('./assets/left-circle.png')} />

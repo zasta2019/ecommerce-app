@@ -41,7 +41,7 @@ export default function Login(props) {
         <Text style={styles.textfield}>Password</Text>
         <TextInput secureTextEntry={true} style={styles.inputfield} />
         <TouchableOpacity activeOpacity={0.6}>
-          <Text style={styles.forgottext}  onPress={ () => this.props.navigation.navigate("Otp")}>Forgot Password?</Text>
+          <Text style={styles.forgottext}  onPress={ () => props.navigation.navigate("Otp")}>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.flex}>
@@ -51,7 +51,7 @@ export default function Login(props) {
       <TouchableOpacity activeOpacity={0.6}>
       <Pressable style={styles.button}>
       <TouchableOpacity activeOpacity={0.6}>
-        <Text style={styles.text}  onPress={ () => this.props.navigation.navigate("Home")}>Sign In</Text>
+        <Text style={styles.text}  onPress={ () => props.navigation.navigate("Home")}>Sign In</Text>
         </TouchableOpacity>
       </Pressable>
       </TouchableOpacity>
@@ -88,7 +88,7 @@ export default function Login(props) {
       <View style={styles.flextext}>
       <Text style={styles.accounttext}>Don't have an Account?</Text>
       <TouchableOpacity activeOpacity={0.6}>
-          <Text style={styles.clicktext} onPress={ () => this.props.navigation.navigate("Signup")}>Sign Up</Text>
+          <Text style={styles.clicktext} onPress={ () => props.navigation.navigate("Signup")}>Sign Up</Text>
         </TouchableOpacity>
       </View>
       <Image style={styles.leftcircle} source={require('./assets/left-circle.png')} />

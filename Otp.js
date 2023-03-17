@@ -10,7 +10,7 @@ export default function Otp(props) {
     <ScrollView style={styles.maincontainer}>
     <View>
       <View style={styles.fleximage}>
-      <TouchableOpacity activeOpacity={0.6} onPress={ () => this.props.navigation.navigate("Login")}>
+      <TouchableOpacity activeOpacity={0.6} onPress={ () => props.navigation.navigate("Login")}>
       <Image style={styles.back} source={require('./assets/back.png')}/>
       </TouchableOpacity>
       <Image style={styles.rightcircle} source={require('./assets/circle.png')} />
@@ -43,7 +43,7 @@ export default function Otp(props) {
       </TouchableOpacity>
       <TouchableOpacity activeOpacity={0.6}>
       <Pressable style={styles.button}>
-      <TouchableOpacity activeOpacity={0.6} onPress={ () => this.props.navigation.navigate("Password")}>
+      <TouchableOpacity activeOpacity={0.6} onPress={ () => props.navigation.navigate("Password")}>
         <Text style={styles.text}>Verify Now</Text>
         </TouchableOpacity>
       </Pressable>

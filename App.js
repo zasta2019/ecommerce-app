@@ -22,6 +22,7 @@ import Returns from './Returns';
 import Coupon from './Coupon';
 import Address from './Address';
 import Contact from './Contact';
+import Manageaddress from './Manageaddress';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,7 +30,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Contact" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Manageaddress" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -50,6 +51,7 @@ function App() {
         <Stack.Screen name="Security" component={Security} />
         <Stack.Screen name="Returns" component={Returns} />
         <Stack.Screen name="Coupon" component={Coupon} />
+        <Stack.Screen name="Manageaddress" component={Manageaddress} />
       </Stack.Navigator>
     </NavigationContainer>
   );

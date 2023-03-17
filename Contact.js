@@ -32,24 +32,26 @@ export default function Contact(props) {
     return (
         <ScrollView style={styles.maincontainer}>
             <View>
-                <Modal
-                    animationType="fade"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        setModalVisible(!modalVisible)
-                    }}>
-                    <View style={styles.centeredView}>
-                        <View style={styles.modalView}>
-                            <Pressable
-                                style={styles.buttonclose}
-                                onPress={() => setModalVisible(!modalVisible)}>
-                                <Image style={styles.cancel} source={require('./assets/cancel.png')} />
-                            </Pressable>
-
-                        </View>
-                    </View>
-                </Modal>
+            <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible)
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Pressable
+                style={styles.buttonclose}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Image style={styles.cancel} source={require('./assets/cancel.png')} />
+              </Pressable>
+              <Image style={styles.success} source={require('./assets/success.png')} />
+              <Text style={styles.successtext}>Thanks for Contacting Us</Text>
+              <Text style={styles.subtext}>our Team will reach you out soon as possible</Text>
+            </View>
+          </View>
+        </Modal>
                 <View>
                     <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Home")}>
                         <Image style={styles.back} source={require('./assets/back.png')} />
@@ -74,6 +76,13 @@ export default function Contact(props) {
                       </View>
                       <Text style={styles.textfield}>Message</Text>
                       <TextInput style={styles.textarea} multiline={true} numberOfLines={6} placeholder="Type Your Message here..." />
+                      <TouchableOpacity activeOpacity={0.6}>
+          <Pressable style={styles.button}>
+            <TouchableOpacity activeOpacity={0.6}>
+              <Text style={styles.text} onPress={() => setModalVisible(true)}>Send Message</Text>
+            </TouchableOpacity>
+          </Pressable>
+        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -105,6 +114,25 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "bold",
     },
+    text: {
+        fontSize: 18,
+        lineHeight: 21,
+        textAlign: 'center',
+        marginTop: 10,
+        fontWeight: 'bold',
+        fontFamily: "Roboto",
+        letterSpacing: 0.25,
+        color: 'white',
+      },
+      button: {
+        borderRadius: 5,
+        backgroundColor: '#8FBF00',
+        width: 319,
+        height: 45,
+        marginTop: 17,
+        marginBottom:17,
+        alignSelf: "center",
+      },
     radio:{
         marginLeft:15,
         marginTop:5,
@@ -147,6 +175,24 @@ const styles = StyleSheet.create({
     accountcontent: {
         marginTop: 7,
     },
+    success: {
+        alignSelf: "center",
+      },
+      successtext: {
+        fontFamily: "Lato-Bold",
+        fontSize: 18,
+        textAlign: "center",
+        color: "#4CAF50",
+        marginTop: 15,
+      },
+      subtext: {
+        fontFamily: "Roboto",
+        fontSize: 14,
+        textAlign: "center",
+        color: "#808080",
+        marginTop: 10,
+      },
+    
     inputfield: {
         width: 319,
         height: 40,
