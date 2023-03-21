@@ -1,34 +1,37 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import { Modal } from 'react-native';
-import * as Font from 'expo-font';
+import { useState } from 'react';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
-let customFonts = {
-  "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
-   "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
-};
-
-
-export default class Password extends React.Component {
-  state = {
-    fontsLoaded: false,
-    modalVisible: false,
-  };
-
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
+export default function Password(props) {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   }
+  const [fontsLoaded]= useFonts({
+    "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
+    "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
+  });
 
-  componentDidMount() {
-    this._loadFontsAsync();
-  }
-
-  render() {
-    const {modalVisible} = this.state;
-    if (!this.state.fontsLoaded) {
-      return null;
+  useEffect (() =>{
+    async function prepare(){
+      await SplashScreen.preventAutoHideAsync();
     }
+    prepare();
+  },[]);
+
+  if(!fontsLoaded){
+    return undefined;
+  }
+  else{
+    SplashScreen.hideAsync();
+  }
+  
   return (
     <ScrollView style={styles.maincontainer}>
       <View>
@@ -37,14 +40,13 @@ export default class Password extends React.Component {
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            this.setState({modalVisible: !modalVisible});
+            setModalVisible(!modalVisible)
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Pressable
                 style={styles.buttonclose}
-                onPress={() => this.setState({modalVisible: !modalVisible})}>
+                onPress={() => setModalVisible(!modalVisible)}>
                 <Image style={styles.cancel} source={require('./assets/cancel.png')} />
               </Pressable>
               <Image style={styles.success} source={require('./assets/success.png')} />
@@ -69,14 +71,20 @@ export default class Password extends React.Component {
         <Text style={styles.forgotheading}>Change Password</Text>
         <View>
           <Text style={styles.textfield}>New Password</Text>
-          <TextInput secureTextEntry={true} style={styles.inputfield} />
+          <View style={styles.hidebox}>
+         <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         </View>
           <Text style={styles.textfield}>Re-enter New Password</Text>
-          <TextInput secureTextEntry={true} style={styles.inputfield} />
+         <View style={styles.hidebox}>
+         <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         </View>
         </View>
         <TouchableOpacity activeOpacity={0.6}>
           <Pressable style={styles.button}>
             <TouchableOpacity activeOpacity={0.6}>
-              <Text style={styles.text} onPress={() => this.setState({modalVisible: true})}>Change Password</Text>
+              <Text style={styles.text} onPress={() => setModalVisible(true)}>Change Password</Text>
             </TouchableOpacity>
           </Pressable>
         </TouchableOpacity>
@@ -87,7 +95,6 @@ export default class Password extends React.Component {
       </View>
     </ScrollView>
   );
-}
 }
 
 const styles = StyleSheet.create({
@@ -122,6 +129,19 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginTop: 7,
     paddingLeft: 10,
+  },
+  passwordfield:{
+    width: 319,
+    height: 40,
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#969696",
+    borderRadius: 5,
+    marginLeft: 40,
+    marginTop: 7,
+    paddingLeft: 10,
+    paddingRight:35,
   },
   textfield: {
     fontFamily: "Roboto",
@@ -201,6 +221,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     color: "#808080",
+  },
+  hidebox:{
+    position:"relative",
+  },
+  eyeicon:{
+    position:"absolute",
+    right:45,
+    top:17,
   },
   fleximage: {
     flexDirection: "row",

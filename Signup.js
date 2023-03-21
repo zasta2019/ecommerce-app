@@ -5,9 +5,14 @@ import { useState } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export default function Signup(props) {
   const [isChecked, setChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  }
   const [fontsLoaded]= useFonts({
     "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
     "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
@@ -43,9 +48,15 @@ export default function Signup(props) {
         <Text style={styles.textfield}>Phone Number</Text>
         <TextInput style={styles.inputfield} keyboardType = 'numeric' />
         <Text style={styles.textfield}>Password</Text>
-        <TextInput secureTextEntry={true} style={styles.inputfield} />
+        <View style={styles.hidebox}>
+         <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         </View>
         <Text style={styles.textfield}>Confirm Password</Text>
-        <TextInput secureTextEntry={true} style={styles.inputfield} />
+        <View style={styles.hidebox}>
+         <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         </View>
       </View>
       <View style={{marginTop:20}}>
       <View style={styles.flex}>
@@ -184,5 +195,26 @@ const styles = StyleSheet.create({
   maincontainer: {
     backgroundColor: "white",
     height: "100%",
-  }
+  },
+  passwordfield:{
+    width: 319,
+    height: 40,
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "#969696",
+    borderRadius: 5,
+    marginLeft: 40,
+    marginTop: 7,
+    paddingLeft: 10,
+    paddingRight:35,
+  },
+  hidebox:{
+    position:"relative",
+  },
+  eyeicon:{
+    position:"absolute",
+    right:45,
+    top:17,
+  },
 });
