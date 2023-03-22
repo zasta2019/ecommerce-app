@@ -95,8 +95,8 @@ export default class Home extends React.Component {
         <Text style={styles.subheading}>Today Deals for You</Text>
         <View style={styles.productlisting}>
          <View style={styles.flexproduct}>
-         <Product productname="Nike T-shirts"/>
-         <Product productname="Puma T-shirts"/>
+         <Product productname="Nike T-shirts" category="Men T-shirts collection" discount="-30%" discountprice="$799" actualprice="$999" imageSource={require("./assets/product.jpg")}/>
+         <Product productname="Puma T-shirts" category="Men T-shirts collection" discount="-50%" discountprice="$599" actualprice="$899" imageSource={require("./assets/menproduct.jpg")}/>
          </View>
         </View>
         </View>
@@ -157,10 +157,6 @@ const styles = StyleSheet.create({
         padding:10,
         marginTop:5,
       },
-      flexproduct:{
-        flexDirection:"row",
-        justifyContent:"space-evenly",
-      },
       backColor:{
         backgroundColor:"#F5FFE8",
         marginTop:12,
@@ -188,5 +184,9 @@ const styles = StyleSheet.create({
       productlisting:{
         padding:10,
         marginTop:5,
+      },
+      flexproduct:{
+        flexDirection:"row",
+        justifyContent:"space-evenly",
       },
 });

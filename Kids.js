@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import * as Font from 'expo-font';
+import Product from './components/Product';
 
 let customFonts = {
   "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
@@ -87,6 +88,12 @@ export default class Kids extends React.Component {
 </ScrollView>
      </View>
      <Text style={styles.subheading}>Kids Collection</Text>
+     <View style={styles.productlisting}>
+         <View style={styles.flexproduct}>
+         <Product productname="Nike T-shirts" category="Kids T-shirts collection" discount="-30%" discountprice="$799" actualprice="$999" imageSource={require("./assets/k-product.jpg")}/>
+         <Product productname="Puma T-shirts" category="Kids T-shirts collection" discount="-50%" discountprice="$599" actualprice="$899" imageSource={require("./assets/k-product2.jpg")}/>
+         </View>
+        </View>
       </View>
     </ScrollView>
   );
@@ -157,5 +164,13 @@ const styles = StyleSheet.create({
       },
       secondcategory:{
         marginLeft:42,
-      }
+      },
+      productlisting:{
+        padding:10,
+        marginTop:5,
+      },
+      flexproduct:{
+        flexDirection:"row",
+        justifyContent:"space-evenly",
+      },
 });

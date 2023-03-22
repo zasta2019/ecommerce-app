@@ -1,123 +1,174 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView, Button, ImageBackground} from 'react-native';
-import * as Font from 'expo-font';
+import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView, Button, ImageBackground } from 'react-native';
+import { useFonts } from 'expo-font';
+import { useState } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
-let customFonts = {
-  "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),
-   "Lato-Bold": require('../assets/font/Lato-Bold.ttf'),
-};
+export default function Product(props) {
+  const [isFilled, setIsFilled] = useState(false);
+  const [fontsLoaded] = useFonts({
+    "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),
+    "Lato-Bold": require('../assets/font/Lato-Bold.ttf'),
+  });
 
-export default class Product extends React.Component {
-  state = {
-    fontsLoaded: false,
-  };
-
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
-  }
-
-  componentDidMount() {
-    this._loadFontsAsync();
-  }
-
-  render() {
-    if (!this.state.fontsLoaded) {
-      return null;
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
     }
+    prepare();
+  }, []);
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
+  else {
+    SplashScreen.hideAsync();
+  }
+
   return (
     <View>
-  <View style={styles.productbox}>
-    <View style={styles.product}>
-   <ImageBackground source={require('../assets/product.jpg')} style={styles.image}></ImageBackground>
-   </View>
-   <View style={styles.discountbox}>
-        <Text style={styles.discount}>-30%</Text>
-    </View>
-    </View> 
-    <View style={styles.flex}>
-    <View>
-   <Text style={styles.productname}>Nike T-shirt</Text>
-    <Text style={styles.category}>Men T-shirt collections</Text>
-    <View style={styles.flex}>
-        <Text style={styles.discountprice}>$799</Text>
-        <Text style={styles.originalprice}>$999</Text>
-    </View>
-   </View>
-  <View>
- 
-  </View>
+      <View style={styles.productbox}>
+        <View style={styles.product}>
+        <Image style={styles.image} source={props.imageSource}/>
+        </View>
+        <View style={styles.discountbox}>
+          <Text style={styles.discount}>{props.discount}</Text>
+        </View>
+        <View style={styles.wishlistbox}>
+          <MaterialIcons
+            name={isFilled ? 'favorite' : 'favorite-border'}
+            size={20}
+            color={isFilled ? 'red' : '#646464'}
+            style={styles.hearticon}
+            onPress={() => setIsFilled(!isFilled)}
+          />
+        </View>
+      </View>
+      <View style={styles.flex}>
+        <View style={styles.productsection}>
+          <Text style={styles.productname}>{props.productname}</Text>
+          <Text style={styles.category}>{props.category}</Text>
+          <View style={styles.flex}>
+            <Text style={styles.discountprice}>{props.discountprice}</Text>
+            <Text style={styles.originalprice}>{props.actualprice}</Text>
+          </View>
+        </View>
+        <View>
+          <View style={styles.otpinput} >
+          <Feather name="shopping-cart" size={18} color="#646464" style={styles.carticon}  />
+          </View>
+        </View>
+      </View>
+
+
     </View>
 
-    
-   </View> 
-    
   );
 };
-}
 
 const styles = StyleSheet.create({
-  productbox:{
-    width:160,
-position:"relative",
-overflow:"hidden",
-borderRadius:10,
+  productbox: {
+    width: 160,
+    position: "relative",
+    overflow: "hidden",
+    borderRadius: 10,
   },
-  product:{
-    width:160,
-    height:220,
-    overflow:"hidden",
+  product: {
+    width: 160,
+    height: 220,
+    overflow: "hidden",
   },
-  image:{
-    width:"100%",
-    height:"100%",
-  },
-  discountbox:{
-   width:45,
-   height:25,
-   backgroundColor:"#4CAF50",
-   borderRadius:5,
+  carticon:{
    position:"absolute",
-   bottom:10,
-   left:10,
+   left:7,
+   top:8,
   },
-  discount:{
-    fontFamily:"Roboto",
-    fontSize:14,
-    textAlign:"center",
-    fontWeight:"bold",
-    color:"white",
+  otpinput: {
+    fontFamily: "Roboto",
+    fontSize: 20,
+    fontWeight: "700",
+    width: 34,
+    height: 34,
+    borderRadius: 5,
+    textAlign: "center",
+    position:"relative",
+    elevation: 4,
+    borderRadius: 50,
+    backgroundColor: "#F6F5FA",
+    marginTop: 8,
+    marginLeft: 16,
   },
-  productname:{
-    fontFamily:"Lato-Bold",
-    marginTop:10,
-    fontSize:16,
-    color:"#323232",
+  image: {
+    width: "100%",
+    height: "100%",
   },
-  category:{
-    fontFamily:"Roboto",
-    fontSize:12,
-    marginTop:5,
-    fontWeight:"bold",
-    color:"#808080",
+  discountbox: {
+    width: 45,
+    height: 25,
+    backgroundColor: "#4CAF50",
+    borderRadius: 5,
+    position: "absolute",
+    bottom: 10,
+    left: 10,
   },
-  discountprice:{
-    fontFamily:"Roboto",
-    fontSize:14,
-    marginTop:5,
-    fontWeight:"bold",
-    color:"#323232",
+  hearticon: {
+    position: "absolute",
+    left: 5,
+    top: 5,
   },
-  originalprice:{
-    fontFamily:"Roboto",
-    fontSize:10,
-    marginTop:9,
-    fontWeight:"normal",
-    color:"#646464",
-    marginLeft:5,
-    textDecorationLine:"line-through",
+  wishlistbox: {
+    width: 30,
+    height: 30,
+    backgroundColor: "white",
+    borderRadius: 50,
+    position: "absolute",
+    top: 10,
+    right: 7,
   },
-  flex:{
-    flexDirection:"row",
+  discount: {
+    fontFamily: "Roboto",
+    fontSize: 14,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    marginTop:3,
+  },
+  productname: {
+    fontFamily: "Lato-Bold",
+    marginTop: 10,
+    fontSize: 14,
+    color: "#323232",
+  },
+  category: {
+    fontFamily: "Roboto",
+    fontSize: 10,
+    marginTop: 5,
+    fontWeight: "bold",
+    color: "#808080",
+  },
+  discountprice: {
+    fontFamily: "Roboto",
+    fontSize: 14,
+    marginTop: 5,
+    fontWeight: "bold",
+    color: "#323232",
+  },
+  originalprice: {
+    fontFamily: "Roboto",
+    fontSize: 10,
+    marginTop: 9,
+    fontWeight: "normal",
+    color: "#646464",
+    marginLeft: 5,
+    textDecorationLine: "line-through",
+  },
+  flex: {
+    flexDirection: "row",
+  },
+  productsection:{
+    width:110,
   },
 });
