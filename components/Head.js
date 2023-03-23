@@ -102,6 +102,11 @@ export default function Onboarding(props) {
           </View>
           </Pressable>
       </TouchableOpacity>
+      <Pressable style={styles.button}>
+            <TouchableOpacity activeOpacity={0.6}>
+              <Text style={styles.text}>Logout</Text>
+            </TouchableOpacity>
+          </Pressable>
      </View>
     </View>
   );
@@ -279,5 +284,25 @@ const styles = StyleSheet.create({
     color: '#323232',
     marginLeft:13,
     marginTop:5,
+  },
+  text: {
+    fontSize: 18,
+    lineHeight: 21,
+    textAlign: 'center',
+    marginTop: 10,
+    fontWeight: 'bold',
+    fontFamily: "Roboto",
+    letterSpacing: 0.25,
+    color: 'white',
+  },
+  button: {
+    borderRadius: 5,
+    backgroundColor: '#8FBF00',
+    width:"80%",
+    height: 45,
+    marginTop: 20,
+    marginLeft:22,
+    marginBottom:7,
+    alignSelf: "center",
   },
 });
