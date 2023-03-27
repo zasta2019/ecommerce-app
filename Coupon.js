@@ -5,8 +5,43 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Modal } from 'react-native';
+import { TabView, TabBar } from 'react-native-tab-view';
 
-export default function Coupons(props) {
+export default function Coupon(props) {
+  
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'first', title: 'New Coupons' },
+    { key: 'second', title: 'Used Coupons' },
+    { key: 'third', title: 'Expired Coupons' },
+  ]);
+
+  const renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'first':
+        return <View style={styles.tab}><Text>First Tab</Text></View>;
+      case 'second':
+        return <View style={styles.tab}><Text>Second Tab</Text></View>;
+      case 'third':
+        return <View style={styles.tab}><Text>Third Tab</Text></View>;
+      default:
+        return null;
+    }
+  };
+
+  const renderTabBar = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{ backgroundColor: '#8FBF00' }}
+      style={{ backgroundColor: 'white' }}
+      renderLabel={({ route, focused, color }) => (
+        <View style={styles.tab}>
+         <Text style={[styles.tabText, focused && {  color:"#8FBF00", }]}>{route.title}</Text>
+        </View>
+      )}
+    />
+  );
+
   const [modalVisible, setModalVisible] = useState(false);
   const [fontsLoaded] = useFonts({
     "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
@@ -51,7 +86,12 @@ export default function Coupons(props) {
             <Image style={styles.back} source={require('./assets/back.png')} />
           </TouchableOpacity>
           <Text style={styles.heading}>My Coupons</Text>
-               
+          <TabView
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      renderTabBar={renderTabBar}
+      onIndexChange={setIndex}
+    />
         </View>
       </View>
     </ScrollView>
@@ -108,6 +148,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  tab: {
+    marginTop:20,
+  },
+  tabText: {
+    color: 'black',
+    fontFamily:"Lato-Bold",
+    paddingBottom:5,
+    fontSize:14,
+    padding:1,
+    textAlign:"center",
   },
 });
 

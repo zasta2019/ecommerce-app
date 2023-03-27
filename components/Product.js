@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView, Button, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView, Button, ImageBackground, } from 'react-native';
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';

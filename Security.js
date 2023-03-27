@@ -63,12 +63,12 @@ export default function Security(props) {
         <Text style={styles.textfield}>New Password</Text>
         <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={20} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
          </View>
         <Text style={styles.textfield}>Re-type New Password</Text>
         <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={20} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
          </View>
         </View>
         <View style={styles.flex}>

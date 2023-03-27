@@ -48,7 +48,6 @@ export default function Otp(props) {
         </TouchableOpacity>
       </Pressable>
       </TouchableOpacity>
-      <Image style={styles.leftcircle} source={require('./assets/left-circle.png')} />
     </View>
     </ScrollView>
   );

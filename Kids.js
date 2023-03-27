@@ -167,10 +167,10 @@ const styles = StyleSheet.create({
       },
       productlisting:{
         padding:10,
-        marginTop:5,
       },
       flexproduct:{
         flexDirection:"row",
         justifyContent:"space-evenly",
+        marginTop:15,
       },
 });

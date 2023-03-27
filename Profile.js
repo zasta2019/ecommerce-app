@@ -4,6 +4,7 @@ import * as Font from 'expo-font';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import Main from './components/Main';
 
 let customFonts = {
   "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),

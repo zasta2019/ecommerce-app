@@ -10,7 +10,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Onboarding(props) {
+export default function Main(props) {
   const drawer = useRef(null);
   const [fontsLoaded] = useFonts({
     "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),

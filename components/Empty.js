@@ -4,10 +4,10 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
-export default function Paymentfailed(props) {
+export default function Empty(props) {
   const [fontsLoaded] = useFonts({
-    "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
-    "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
+    "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),
+    "Lato-Bold": require('../assets/font/Lato-Bold.ttf'),
   });
   useEffect(() => {
     async function prepare() {
@@ -23,43 +23,56 @@ export default function Paymentfailed(props) {
     SplashScreen.hideAsync();
   }
   return (
-    <View style={styles.maincontainer}>
+    <ScrollView style={styles.maincontainer}>
       <View>
-          <View>
-          <Image style={styles.failed} source={require('./assets/failed.jpg')}/>
-          <Text style={styles.heading}>Your Payment was Declined !</Text> 
-          <Text style={styles.sub}>If the user already signed will navigate to shipping address field always, as the new user need to login or create account.</Text>  
+        <View>
+    <View style={styles.content}>
+        <View style={styles.imgbox}>
+        <Image style={styles.cartimg} source={props.image} />
+        </View>
+        <Text style={styles.emptytext}>{props.heading}</Text> 
+          <Text style={styles.sub}>{props.description}</Text>  
           <Pressable style={styles.button}>
             <TouchableOpacity activeOpacity={0.6}>
-              <Text style={styles.text}>Go to Checkout</Text>
+              <Text style={styles.text}>{props.button}</Text>
             </TouchableOpacity>
           </Pressable>
-          </View>
-      </View>
     </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   maincontainer: {
     backgroundColor: "white",
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center",
     height: "100%",
   },
-  heading: {
-    fontFamily: "Roboto",
+  content:{
+   alignItems:"center",
+   marginTop:60,
+  },
+  cartimg:{
+    width:"100%",
+    height:"100%",
+  },
+  imgbox:{
+    width:40,
+    height:40,
+    alignItems:"center",
+    justifyContent:"center",
+  },
+  flex: {
+    flexDirection: "row",
+  },
+  emptytext: {
+    fontFamily: "Lato-Bold",
     fontSize: 20,
+    marginLeft: 5,
+    marginTop:15,
     textAlign: "center",
     fontWeight: "bold",
-    color:"#FF3838",
-    marginTop:10,
-  },
-  failed:{
-    width:65,
-    height:65,
-    alignSelf:"center",
   },
   sub:{
     fontFamily:"Roboto",
@@ -87,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#8FBF00',
     width: 319,
     height: 45,
-    marginTop: 12,
+    marginTop: 18,
     alignSelf: "center",
   },
 });

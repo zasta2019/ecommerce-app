@@ -73,12 +73,12 @@ export default function Password(props) {
           <Text style={styles.textfield}>New Password</Text>
           <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
          </View>
           <Text style={styles.textfield}>Re-enter New Password</Text>
          <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-          <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} />
+         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
          </View>
         </View>
         <TouchableOpacity activeOpacity={0.6}>
@@ -89,9 +89,8 @@ export default function Password(props) {
           </Pressable>
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={0.6}>
-          <Text style={styles.resend} onPress={() => this.props.navigation.navigate("Login")}>Back to SignIn</Text>
+          <Text style={styles.resend} onPress={() => props.navigation.navigate("Login")}>Back to SignIn</Text>
         </TouchableOpacity>
-        <Image style={styles.leftcircle} source={require('./assets/left-circle.png')} />
       </View>
     </ScrollView>
   );
