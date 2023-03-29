@@ -112,7 +112,7 @@ export default function Manageaddress(props) {
                   <TouchableOpacity activeOpacity={0.6}>
                     <View style={styles.flexbutton}>
                       <MaterialCommunityIcons name="delete-outline" size={21} color="white" style={styles.deleteicon} />
-                      <Text style={styles.text}>Delete</Text>
+                      <Text style={styles.text} onPress={() => setModalVisible(true)}>Delete</Text>
                     </View>
                   </TouchableOpacity>
                 </Pressable>

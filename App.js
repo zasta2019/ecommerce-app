@@ -29,6 +29,8 @@ import Paymentfailed from './Paymentfailed';
 import Orderdetails from './Orderdetails';
 import Wishlist from './Wishlist';
 import Emptycart from './Emptycart';
+import Myorder from './Myorder';
+import Productlisting from './Productlisting';
 
 
 const Stack = createNativeStackNavigator();
@@ -36,7 +38,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Productlisting" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -48,8 +50,10 @@ function App() {
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="Product" component={Product} />
         <Stack.Screen name="Men" component={Men} />
+        <Stack.Screen name="Myorder" component={Myorder} />
         <Stack.Screen name="Women" component={Women} />
         <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Productlisting" component={Productlisting} />
         <Stack.Screen name="Kids" component={Kids} />
         <Stack.Screen name="Address" component={Address} />
         <Stack.Screen name="Profile" component={Profile} />
