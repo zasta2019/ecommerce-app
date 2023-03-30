@@ -48,7 +48,7 @@ export default function Main(props) {
       </View>
      <View style={styles.navcontent}>
      <TouchableOpacity activeOpacity={0.6}>
-       <Pressable style={styles.navbutton}>
+       <Pressable style={styles.navbutton} onPress={ () => props.navigation.navigate("Profile")}>
           <View style={styles.navflex}>
          <Image source={require('../assets/icon-user.png')} style={styles.icons}/>
           <Text style={styles.navtext}>My Profile</Text> 
@@ -59,7 +59,7 @@ export default function Main(props) {
           </Pressable>
       </TouchableOpacity>
       <TouchableOpacity activeOpacity={0.6}>
-       <Pressable style={styles.navbutton}>
+       <Pressable style={styles.navbutton} onPress={ () => props.navigation.navigate("Myorder")}>
           <View style={styles.navflex}>
           <Image source={require('../assets/calender.png')} style={styles.icons}/>
           <Text style={styles.navtext}>My Orders</Text>  
@@ -70,7 +70,7 @@ export default function Main(props) {
           </Pressable>
       </TouchableOpacity>
       <TouchableOpacity activeOpacity={0.6}>
-      <Pressable style={styles.navbutton}>
+      <Pressable style={styles.navbutton} onPress={ () => props.navigation.navigate("Returns")}>
           <View style={styles.navflex}>
           <Image source={require('../assets/return-icon.png')} style={styles.icons}/>
           <Text style={styles.navtext}>My Returns</Text>  
@@ -81,7 +81,7 @@ export default function Main(props) {
           </Pressable>
       </TouchableOpacity>
       <TouchableOpacity activeOpacity={0.6}>
-      <Pressable style={styles.navbutton}>
+      <Pressable style={styles.navbutton} onPress={ () => props.navigation.navigate("Coupon")}>
           <View style={styles.navflex}>
           <Image source={require('../assets/token.png')} style={{width:20,height:29,marginLeft:37,marginTop:3}}/>
           <Text style={styles.navtext}>My Coupons</Text>  
@@ -92,7 +92,7 @@ export default function Main(props) {
           </Pressable>
       </TouchableOpacity>
       <TouchableOpacity activeOpacity={0.6}>
-      <Pressable style={styles.navbutton}>
+      <Pressable style={styles.navbutton} onPress={ () => props.navigation.navigate("Contact")}>
           <View style={styles.navflex}>
           <Image source={require('../assets/help.png')} style={styles.icons}/>
           <Text style={styles.navtext}>Help & Support</Text>  
@@ -104,7 +104,7 @@ export default function Main(props) {
       </TouchableOpacity>
       <Pressable style={styles.button}>
             <TouchableOpacity activeOpacity={0.6}>
-              <Text style={styles.text}>Logout</Text>
+              <Text style={styles.text} onPress={ () => props.navigation.navigate("Login")}>Logout</Text>
             </TouchableOpacity>
           </Pressable>
      </View>
@@ -120,7 +120,7 @@ export default function Main(props) {
       <View style={styles.header}>
       <View style={styles.flexnav}>
        <Pressable>
-       <EvilIcons name="navicon" size={33} color="#646464" style={{marginTop:23,marginLeft:30,}}  title="Open drawer"
+       <EvilIcons name="navicon" size={35} color="#646464" style={{marginTop:23,marginLeft:30,}}  title="Open drawer"
           onPress={() => drawer.current.openDrawer()}/>
        </Pressable>
       <View>

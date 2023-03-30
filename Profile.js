@@ -40,14 +40,14 @@ export default class Profile extends React.Component {
  <View style={styles.settings}>
  <View style={styles.flex}>
     <View style={styles.content}>
-    <FontAwesome5 name="user" size={23} color="black" />
+    <FontAwesome5 name="user" size={23} color="black" style={{marginLeft:2}} />
       <Text style={styles.main}>Account Settings</Text>
       <Text style={styles.sub}>If you can change your account settings</Text>
     </View>
     <View style={{marginLeft:6}}>
     <Pressable style={styles.changebutton}>
     <TouchableOpacity activeOpacity={0.6}>
-      <Text style={styles.buttontext}>Change</Text>
+      <Text style={styles.buttontext} onPress={ () => this.props.navigation.navigate("Account")}>Change</Text>
       </TouchableOpacity>
     </Pressable>
     </View>
@@ -64,7 +64,7 @@ export default class Profile extends React.Component {
     <View style={{marginLeft:6}}>
     <Pressable style={styles.changebutton}>
     <TouchableOpacity activeOpacity={0.6}>
-      <Text style={styles.buttontext}>Change</Text>
+      <Text style={styles.buttontext} onPress={ () => this.props.navigation.navigate("Security")}>Change</Text>
       </TouchableOpacity>
     </Pressable>
     </View>
@@ -98,7 +98,7 @@ export default class Profile extends React.Component {
     <View style={{marginLeft:4}}>
     <Pressable style={styles.changebutton}>
     <TouchableOpacity activeOpacity={0.6}>
-      <Text style={styles.buttontext}>Change</Text>
+      <Text style={styles.buttontext} onPress={ () => this.props.navigation.navigate("Manageaddress")}>Change</Text>
       </TouchableOpacity>
     </Pressable>
     </View>

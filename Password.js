@@ -73,12 +73,12 @@ export default function Password(props) {
           <Text style={styles.textfield}>New Password</Text>
           <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
+         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={20} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
          </View>
           <Text style={styles.textfield}>Re-enter New Password</Text>
          <View style={styles.hidebox}>
          <TextInput secureTextEntry={!showPassword} style={styles.passwordfield} />
-         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={18} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
+         <Pressable style={styles.eyeiconbutton}> <FeatherIcon name={showPassword ? 'eye' : 'eye-off'} size={20} color='#969696' style={styles.eyeicon} onPress={togglePasswordVisibility} /></Pressable>
          </View>
         </View>
         <TouchableOpacity activeOpacity={0.6}>

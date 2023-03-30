@@ -56,10 +56,12 @@ export default function Ordersummary(props) {
           <View style={{ padding: 18 }}>
             <View style={styles.flexheading}>
               <Text style={styles.detailsheading}>Delivery Address</Text>
-              <View style={styles.flexlink}>
+              <TouchableOpacity activeOpacity={0.6}>
+              <Pressable style={styles.flexlink} onPress={() => props.navigation.navigate("Address")}>
                 <AntDesign name="plus" size={16} color="#2E6CF0" style={{ marginTop: 2 }} />
                 <Text style={styles.link}>Add New Delivery Address</Text>
-              </View>
+              </Pressable>
+              </TouchableOpacity>
             </View>
             <View style={styles.box}>
               <View style={styles.flex}>
@@ -244,6 +246,14 @@ const styles = StyleSheet.create({
     borderColor: "rgba(90, 90, 90, 0.3)",
     borderWidth: 1,
     padding: 15,
+  },
+  lockheading:{
+    fontFamily: "Lato-Bold",
+    fontSize: 16,
+    color: "#323232",
+    marginTop: 10,
+    marginLeft: 6,
+    fontWeight: "bold",
   },
   centeredView: {
     flex: 1,
