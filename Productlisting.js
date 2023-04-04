@@ -13,8 +13,10 @@ import { useTheme } from 'react-native-paper';
 
 export default function Productlisting(props) {
   const theme = useTheme();
+  
   const [selectedValue, setSelectedValue] = React.useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [modal1Visible, setModal1Visible] = useState(false);
   const [fontsLoaded] = useFonts({
     "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
     "Lato-Bold": require('./assets/font/Lato-Bold.ttf'),
@@ -80,6 +82,41 @@ export default function Productlisting(props) {
             </View>
           </View>
         </Modal>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modal1Visible}
+          onRequestClose={() => {
+            setModal1Visible(!modal1Visible)
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={styles.flexfilter}>
+                <Text style={styles.modalheading}>Filter</Text>
+                <Pressable
+                  style={styles.buttonclose}
+                  onPress={() => setModal1Visible(!modal1Visible)}>
+                  <AntDesign name="close" size={24} color="black" style={styles.closeicon} />
+                </Pressable>
+              </View>
+              <View style={styles.hairline}></View>
+           
+              <View style={styles.hairline}></View>
+              <View style={styles.buttonflex}>
+                <Pressable style={styles.applybutton}>
+                  <TouchableOpacity activeOpacity={0.6}>
+                    <Text style={styles.applytext}>Apply</Text>
+                  </TouchableOpacity>
+                </Pressable>
+                <Pressable style={styles.secondary}>
+                  <TouchableOpacity activeOpacity={0.6}>
+                    <Text style={styles.secondarytext}>Clear</Text>
+                  </TouchableOpacity>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </Modal>
         <View>
           <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Home")}>
             <Image style={styles.back} source={require('./assets/back.png')} />
@@ -114,7 +151,7 @@ export default function Productlisting(props) {
         </Pressable>
        </View>
        <View>
-        <Pressable style={styles.filterbutton}>
+        <Pressable style={styles.filterbutton} onPress={() => setModal1Visible(true)}>
         <TouchableOpacity activeOpacity={0.6}>
          <View style={styles.flexbutton}>
          <Image style={styles.filtericon} source={require('./assets/f-icon.png')} />

@@ -46,7 +46,20 @@ export default function Manageaddress(props) {
                 onPress={() => setModalVisible(!modalVisible)}>
                 <Image style={styles.cancel} source={require('./assets/cancel.png')} />
               </Pressable>
-
+              <Text style={styles.reviewheading}>Are You Sure ?</Text>
+              <Text style={styles.subtextreview}>Do you really want to delete this address</Text>
+              <View style={styles.deleteflex}>
+      <Pressable style={styles.delete}>
+      <TouchableOpacity activeOpacity={0.6}>
+        <Text style={styles.deletetext}>Delete</Text>
+        </TouchableOpacity>
+      </Pressable>
+      <Pressable style={styles.cancelbutton}>
+      <TouchableOpacity activeOpacity={0.6}>
+        <Text style={styles.canceltext}>Cancel</Text>
+        </TouchableOpacity>
+      </Pressable>
+        </View>
             </View>
           </View>
         </Modal>
@@ -84,7 +97,7 @@ export default function Manageaddress(props) {
                   <TouchableOpacity activeOpacity={0.6}>
                     <View style={styles.flexbutton}>
                       <MaterialCommunityIcons name="delete-outline" size={21} color="white" style={styles.deleteicon} />
-                      <Text style={styles.text}>Delete</Text>
+                      <Text style={styles.text}  onPress={() => setModalVisible(true)}>Delete</Text>
                     </View>
                   </TouchableOpacity>
                 </Pressable>
@@ -248,4 +261,59 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  reviewheading: {
+    fontFamily: "Lato-Bold",
+    fontSize: 20,
+    textAlign: "center",
+    color:"#ED5E68",
+  },
+  subtextreview: {
+    fontFamily: "Lato-Bold",
+    fontSize: 15,
+    marginTop: 10,
+    textAlign: "center",
+    color: "#323232",
+  },
+  deleteflex:{
+    flexDirection:"row",
+    justifyContent:"space-evenly",
+  },
+  deletetext:{
+      fontSize: 16,
+      lineHeight: 21,
+      textAlign: 'center',
+      marginTop: 10,
+      fontWeight: 'bold',
+      fontFamily: "Roboto",
+      letterSpacing: 0.25,
+      color: 'white',
+    },
+    delete: {
+      borderRadius: 5,
+      backgroundColor: '#ED5E68',
+      width: 140,
+      height: 45,
+      marginTop: 20,
+      alignSelf: "center",
+    },
+    cancelbutton:{
+      borderWidth:1,
+      borderColor:"#D4D4D4",
+      borderRadius: 5,
+      backgroundColor: 'white',
+      width: 140,
+      height: 45,
+      marginTop: 20,
+      alignSelf: "center",
+    },
+    canceltext:{
+      fontSize: 16,
+      lineHeight: 21,
+      textAlign: 'center',
+      marginTop: 10,
+      fontWeight: 'bold',
+      fontFamily: "Roboto",
+      letterSpacing: 0.25,
+      color: '#323232',
+    },
 });

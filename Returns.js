@@ -316,11 +316,11 @@ const styles = StyleSheet.create({
     color: "#969696",
   },
   returnstatus: {
-    width: 100,
+    width: 110,
     height: 25,
     borderRadius: 50,
     backgroundColor: "#FFEAEA",
-    marginLeft: 44,
+    marginLeft: 36,
   },
   buttonclose: {
     width: 50,

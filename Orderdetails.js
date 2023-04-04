@@ -375,11 +375,11 @@ const styles = StyleSheet.create({
     color: "#969696",
   },
   deliverystatus: {
-    width: 100,
+    width: 110,
     height: 25,
     borderRadius: 50,
     backgroundColor: "#ECFFED",
-    marginLeft: 44,
+    marginLeft: 36,
   },
   model: {
     fontFamily: "Lato-Bold",

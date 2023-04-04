@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     position:"absolute",
     zIndex:1,
-    top:18,
+    top:20,
     right:16,
   },
   text: {

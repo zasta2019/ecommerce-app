@@ -11,6 +11,8 @@ import Onboard2 from './Onboard2';
 import Onboard3 from './Onboard3';
 import Product from './components/Product';
 import Empty from './components/Empty';
+import Newcoupons from './components/Newcoupons';
+import Usedcoupons from './components/Usedcoupons';
 import Main from './components/Main';
 import Men from './Men';
 import Women from './Women';
@@ -32,6 +34,10 @@ import Emptycart from './Emptycart';
 import Myorder from './Myorder';
 import Productlisting from './Productlisting';
 import Paymentsuccess from './Paymentsuccess';
+import Mycart from './Mycart';
+import Productdetails from './Productdetails';
+import Payment from './Payment';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -39,7 +45,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Myorder" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Coupon" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -53,13 +59,18 @@ function App() {
         <Stack.Screen name="Men" component={Men} />
         <Stack.Screen name="Myorder" component={Myorder} />
         <Stack.Screen name="Women" component={Women} />
+        <Stack.Screen name="Mycart" component={Mycart} />
+        <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Productlisting" component={Productlisting} />
+        <Stack.Screen name="Productdetails" component={Productdetails} />
         <Stack.Screen name="Kids" component={Kids} />
         <Stack.Screen name="Address" component={Address} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Paymentsuccess" component={Paymentsuccess} />
         <Stack.Screen name="Empty" component={Empty} />
+        <Stack.Screen name="Newcoupons" component={Newcoupons} />
+        <Stack.Screen name="Usedcoupons" component={Usedcoupons} />
         <Stack.Screen name="Account" component={Account} />
         <Stack.Screen name="Emptycart" component={Emptycart} />
         <Stack.Screen name="Security" component={Security} />
