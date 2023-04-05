@@ -10,7 +10,6 @@ import { Modal } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-
 export default function Mycart(props) {
   const [count, setCount] = useState(0);
 
@@ -385,7 +384,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     backgroundColor: 'white',
-    elevation: 1,
+    elevation: 2,
     marginRight: 10,
   },
   tabcolorButton: {
