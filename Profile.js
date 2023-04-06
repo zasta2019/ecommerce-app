@@ -81,7 +81,7 @@ export default class Profile extends React.Component {
     <View>
     <Pressable style={styles.changebutton}>
     <TouchableOpacity activeOpacity={0.6}>
-      <Text style={styles.buttontext}>Change</Text>
+      <Text style={styles.buttontext} onPress={ () => this.props.navigation.navigate("Managepayment")}>Change</Text>
       </TouchableOpacity>
     </Pressable>
     </View>

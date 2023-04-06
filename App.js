@@ -13,6 +13,7 @@ import Product from './components/Product';
 import Empty from './components/Empty';
 import Newcoupons from './components/Newcoupons';
 import Usedcoupons from './components/Usedcoupons';
+import Expiredcoupons from './components/Expiredcoupons';
 import Main from './components/Main';
 import Men from './Men';
 import Women from './Women';
@@ -38,6 +39,7 @@ import Mycart from './Mycart';
 import Productdetails from './Productdetails';
 import Payment from './Payment';
 import Viewproduct from './Viewproduct';
+import Managepayment from './Managepayment';
 
 
 
@@ -47,7 +49,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Viewproduct" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Managepayment" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -66,6 +68,7 @@ function App() {
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Productlisting" component={Productlisting} />
         <Stack.Screen name="Productdetails" component={Productdetails} />
+        <Stack.Screen name="Managepayment" component={Managepayment} />
         <Stack.Screen name="Kids" component={Kids} />
         <Stack.Screen name="Viewproduct" component={Viewproduct} />
         <Stack.Screen name="Address" component={Address} />
@@ -74,6 +77,7 @@ function App() {
         <Stack.Screen name="Empty" component={Empty} />
         <Stack.Screen name="Newcoupons" component={Newcoupons} />
         <Stack.Screen name="Usedcoupons" component={Usedcoupons} />
+        <Stack.Screen name="Expiredcoupons" component={Expiredcoupons} />
         <Stack.Screen name="Account" component={Account} />
         <Stack.Screen name="Emptycart" component={Emptycart} />
         <Stack.Screen name="Security" component={Security} />

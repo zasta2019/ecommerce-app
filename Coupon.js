@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, 
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import Usedcoupons from './components/Usedcoupons';
 import Newcoupons from './components/Newcoupons';
+import Expiredcoupons from './components/Expiredcoupons';
 
 const FirstRoute = () => (
   <View style={styles.texttab}>
@@ -22,7 +23,7 @@ const SecondRoute = () => (
 
 const ThirdRoute = () => (
   <View style={styles.texttab}>
-    <Text>Third Tab</Text>
+   <Expiredcoupons />
   </View>
 );
 

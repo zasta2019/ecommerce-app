@@ -23,13 +23,12 @@ export default function Mycart(props) {
     }
   };
   const [selectedTab, setSelectedTab] = useState(null);
-  const [selectedTab1, setSelectedTab1] = useState(null);
 
   const handleTabPress = (tabIndex) => {
     setSelectedTab(tabIndex);
-    setSelectedTab1(tabIndex);
   };
 
+  const [modalVisible, setModalVisible] = useState(false);
   const [modal1Visible, setModal1Visible] = useState(false);
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
@@ -54,6 +53,37 @@ export default function Mycart(props) {
     <View style={{ flex: 1 }}>
       <ScrollView style={styles.maincontainer}>
         <View>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible)
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Pressable
+                style={styles.buttonclose}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Image style={styles.cancel} source={require('./assets/cancel.png')} />
+              </Pressable>
+              <Text style={styles.reviewheading}>Are You Sure ?</Text>
+              <Text style={styles.subtextreview}>Do you really want to Remove this Item?</Text>
+              <View style={styles.deleteflex}>
+      <Pressable style={styles.delete}>
+      <TouchableOpacity activeOpacity={0.6}>
+        <Text style={styles.deletetext}>Move to Wishlist</Text>
+        </TouchableOpacity>
+      </Pressable>
+      <Pressable style={styles.cancelbutton}>
+      <TouchableOpacity activeOpacity={0.6}>
+        <Text style={styles.canceltext}>Remove</Text>
+        </TouchableOpacity>
+      </Pressable>
+        </View>
+            </View>
+          </View>
+        </Modal>
           <Modal
             animationType="fade"
             transparent={true}
@@ -74,27 +104,27 @@ export default function Mycart(props) {
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabcolorButton,
-                          selectedTab === 0 && styles.selectedTabButton, { backgroundColor: 'white' },
+                          selectedTab === '0' && styles.selectedTabButton, { backgroundColor: 'white' },
                         ]}
-                        onPress={() => handleTabPress(0)}
+                        onPress={() => handleTabPress('0')}
                       >
 
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabcolorButton,
-                          selectedTab === 1 && styles.selectedTabButton, { backgroundColor: '#B6B7BA' },
+                          selectedTab === '1' && styles.selectedTabButton, { backgroundColor: '#B6B7BA' },
                         ]}
-                        onPress={() => handleTabPress(1)}
+                        onPress={() => handleTabPress('1')}
                       >
 
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabcolorButton,
-                          selectedTab === 2 && styles.selectedTabButton, { backgroundColor: '#323232' },
+                          selectedTab === '2' && styles.selectedTabButton, { backgroundColor: '#323232' },
                         ]}
-                        onPress={() => handleTabPress(2)}
+                        onPress={() => handleTabPress('2')}
                       >
 
                       </TouchableOpacity>
@@ -108,27 +138,27 @@ export default function Mycart(props) {
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabButton,
-                          selectedTab1 === 'tab1' && styles.selectedTabButton,
+                          selectedTab === '3' && styles.selectedTabButton,
                         ]}
-                        onPress={() => handleTabPress('tab1')}
+                        onPress={() => handleTabPress('3')}
                       >
                         <Text style={styles.tabButtonText}>S</Text>
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabButton,
-                          selectedTab1 === 'tab2' && styles.selectedTabButton,
+                          selectedTab === '4' && styles.selectedTabButton,
                         ]}
-                        onPress={() => handleTabPress('tab2')}
+                        onPress={() => handleTabPress('4')}
                       >
                         <Text style={styles.tabButtonText}>M</Text>
                       </TouchableOpacity>
                       <TouchableOpacity activeOpacity={0.6}
                         style={[
                           styles.tabButton,
-                          selectedTab1 === 'tab3' && styles.selectedTabButton,
+                          selectedTab === '5' && styles.selectedTabButton,
                         ]}
-                        onPress={() => handleTabPress('tab3')}
+                        onPress={() => handleTabPress('5')}
                       >
                         <Text style={styles.tabButtonText}>XL</Text>
                       </TouchableOpacity>
@@ -214,10 +244,10 @@ export default function Mycart(props) {
               </View>
               <View>
                 <Pressable style={styles.deletebutton}>
-                  <TouchableOpacity activeOpacity={0.6}>
+                  <TouchableOpacity activeOpacity={0.6} onPress={() => setModalVisible(true)}>
                     <View style={styles.flexbutton}>
                       <MaterialCommunityIcons name="delete-outline" size={21} color="white" style={styles.deleteicon} />
-                      <Text style={styles.deletetext}>Remove</Text>
+                      <Text style={styles.removetext}>Remove</Text>
                     </View>
                   </TouchableOpacity>
                 </Pressable>
@@ -273,10 +303,10 @@ export default function Mycart(props) {
               </View>
               <View>
                 <Pressable style={styles.deletebutton}>
-                  <TouchableOpacity activeOpacity={0.6}>
+                  <TouchableOpacity activeOpacity={0.6} onPress={() => setModalVisible(true)}>
                     <View style={styles.flexbutton}>
                       <MaterialCommunityIcons name="delete-outline" size={21} color="white" style={styles.deleteicon} />
-                      <Text style={styles.deletetext}>Remove</Text>
+                      <Text style={styles.removetext}>Remove</Text>
                     </View>
                   </TouchableOpacity>
                 </Pressable>
@@ -604,7 +634,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     alignSelf: "flex-end",
   },
-  deletetext: {
+  removetext: {
     fontSize: 14,
     lineHeight: 21,
     textAlign: 'center',
@@ -693,6 +723,62 @@ const styles = StyleSheet.create({
     height: 42,
     marginLeft: 15,
   },
+  deleteflex:{
+    flexDirection:"row",
+    justifyContent:"space-evenly",
+  },
+  deletetext:{
+      fontSize: 16,
+      lineHeight: 21,
+      textAlign: 'center',
+      marginTop: 10,
+      fontWeight: 'bold',
+      fontFamily: "Roboto",
+      letterSpacing: 0.25,
+      color: 'white',
+    },
+    delete: {
+      borderRadius: 5,
+      backgroundColor:'#8FBF00',
+      width: 160,
+      height: 45,
+      marginTop: 20,
+      alignSelf: "center",
+    },
+    cancelbutton:{
+      borderWidth:1,
+      borderColor:"#ED5E68",
+      borderRadius: 5,
+      backgroundColor: 'white',
+      width: 160,
+      height: 45,
+      marginTop: 20,
+      alignSelf: "center",
+    },
+    canceltext:{
+      fontSize: 16,
+      lineHeight: 21,
+      textAlign: 'center',
+      marginTop: 10,
+      fontWeight: 'bold',
+      fontFamily: "Roboto",
+      letterSpacing: 0.25,
+      color: '#ed5e68',
+    },
+    reviewheading: {
+      fontFamily: "Lato-Bold",
+      fontSize: 20,
+      textAlign: "center",
+      color:"#ED5E68",
+    },
+    subtextreview: {
+      fontFamily: "Lato-Bold",
+      fontSize: 15,
+      marginTop: 10,
+      letterSpacing:0.8,
+      textAlign: "center",
+      color: "#323232",
+    },
 });
 
 

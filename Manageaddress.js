@@ -271,6 +271,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato-Bold",
     fontSize: 15,
     marginTop: 10,
+    letterSpacing:0.8,
     textAlign: "center",
     color: "#323232",
   },

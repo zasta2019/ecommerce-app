@@ -289,6 +289,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 14,
     marginTop: 7,
+    letterSpacing:0.8,
     textAlign: "center",
     color: "#969696",
     fontWeight: "bold",

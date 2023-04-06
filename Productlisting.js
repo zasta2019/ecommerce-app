@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView, TouchableWithoutFeedback} from 'react-native';
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
@@ -9,11 +9,24 @@ import { Modal } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
+import Checkbox from 'expo-checkbox';
 
 
 export default function Productlisting(props) {
+
+  const [isChecked, setChecked] = useState(false);
+  const [isChecked1, setChecked1] = useState(false);
+  const [isChecked2, setChecked2] = useState(false);
+
+
+
+  const [activeTab, setActiveTab] = useState('category');
+
+  const handleTabPress = (tabName) => {
+    setActiveTab(tabName);
+  };
+
   const theme = useTheme();
-  
   const [selectedValue, setSelectedValue] = React.useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [modal1Visible, setModal1Visible] = useState(false);
@@ -100,7 +113,152 @@ export default function Productlisting(props) {
                 </Pressable>
               </View>
               <View style={styles.hairline}></View>
-           
+              <View style={styles.container}>
+      <View style={styles.tabContainer}>
+        <TouchableWithoutFeedback onPress={() => handleTabPress('category')}>
+          <View style={[styles.tabItem, activeTab === 'category' && styles.activeTabItem]}>
+            <Text style={styles.tabTitle}>Category</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => handleTabPress('brand')}>
+          <View style={[styles.tabItem, activeTab === 'brand' && styles.activeTabItem]}>
+            <Text style={styles.tabTitle}>Brand</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => handleTabPress('price')}>
+          <View style={[styles.tabItem, activeTab === 'price' && styles.activeTabItem]}>
+            <Text style={styles.tabTitle}>Price</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => handleTabPress('size')}>
+          <View style={[styles.tabItem, activeTab === 'size' && styles.activeTabItem]}>
+            <Text style={styles.tabTitle}>Size</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => handleTabPress('color')}>
+          <View style={[styles.tabItem, activeTab === 'color' && styles.activeTabItem]}>
+            <Text style={styles.tabTitle}>Color</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+      <View style={styles.contentContainer}>
+        {activeTab === 'category' && (
+          <ScrollView>
+            <Text style={styles.contentTitle}>Categories</Text>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.checktext}>Full T-shirts</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
+        <Text style={styles.checktext}>Full T-shirts</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.checktext}>Full T-shirts</Text>
+      </View>
+        </View>
+          </ScrollView>
+        )}
+        {activeTab === 'brand' && (
+          <ScrollView>
+            <Text style={styles.contentTitle}>Brands</Text>
+            <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.checktext}>Puma</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
+        <Text style={styles.checktext}>Nike</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.checktext}>Allen solly</Text>
+      </View>
+        </View>
+          </ScrollView>
+        )}
+        {activeTab === 'price' && (
+          <ScrollView>
+            <Text style={styles.contentTitle}>Price Range</Text>
+            <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.checktext}>below 1000</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
+        <Text style={styles.checktext}>above 2000</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.checktext}>below 500</Text>
+      </View>
+        </View>
+          </ScrollView>
+        )}
+           {activeTab === 'size' && (
+          <ScrollView>
+            <Text style={styles.contentTitle}>Size</Text>
+            <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.checktext}>XL</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
+        <Text style={styles.checktext}>XXL</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.checktext}>M</Text>
+      </View>
+        </View>
+          </ScrollView>
+        )}
+           {activeTab === 'color' && (
+          <ScrollView>
+            <Text style={styles.contentTitle}>Color</Text>
+            <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.checktext}>Red</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
+        <Text style={styles.checktext}>Green</Text>
+      </View>
+        </View>
+        <View style={styles.option}>
+        <View style={styles.flex}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.checktext}>Black</Text>
+      </View>
+        </View>
+          </ScrollView>
+        )}
+      </View>
+    </View>
               <View style={styles.hairline}></View>
               <View style={styles.buttonflex}>
                 <Pressable style={styles.applybutton}>
@@ -141,8 +299,8 @@ export default function Productlisting(props) {
     </ScrollView>
     <View style={styles.fixedbutton}>
        <View>
-        <Pressable style={styles.sortbutton} onPress={() => setModalVisible(true)}>
-        <TouchableOpacity activeOpacity={0.6}>
+        <Pressable style={styles.sortbutton}>
+        <TouchableOpacity activeOpacity={0.6} onPress={() => setModalVisible(true)}>
          <View style={styles.flexbutton}>
          <Image style={styles.sorticon} source={require('./assets/sort.png')} />
          <Text style={styles.fixedtext}>Sort</Text>
@@ -151,8 +309,8 @@ export default function Productlisting(props) {
         </Pressable>
        </View>
        <View>
-        <Pressable style={styles.filterbutton} onPress={() => setModal1Visible(true)}>
-        <TouchableOpacity activeOpacity={0.6}>
+        <Pressable style={styles.filterbutton}>
+        <TouchableOpacity activeOpacity={0.6} onPress={() => setModal1Visible(true)}>
          <View style={styles.flexbutton}>
          <Image style={styles.filtericon} source={require('./assets/f-icon.png')} />
          <Text style={styles.filtertext}>Filter</Text>
@@ -166,6 +324,49 @@ export default function Productlisting(props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
+  tabContainer: {
+    width: '40%',
+    borderRightWidth: 1,
+    borderColor: '#ccc',
+    backgroundColor: '#F5FFE8',
+  },
+  option:{
+    marginTop:14,
+  },
+  tabItem: {
+    padding: 10,
+    marginTop:7,
+    backgroundColor: '#F5FFE8',
+  },
+  activeTabItem: {
+    backgroundColor: '#fff',
+    color:"#323232",
+  },
+  tabTitle: {
+    fontFamily:"Lato-Bold",
+    fontSize:16,
+    color:"#323232",
+    textAlign:"center",
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 10,
+    marginLeft:10,
+  },
+  contentTitle: {
+    fontFamily:"Lato-Bold",
+    fontSize:18,
+    marginBottom: 10,
+  },
+  checktext: {
+    marginLeft: 7,
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: 600,
+  },
   maincontainer: {
     backgroundColor: "white",
     height: "100%",
