@@ -393,7 +393,7 @@ const styles = StyleSheet.create({
     width:18,
   },
   filterbutton:{
-    width:195,
+    width:"100%",
     height:45,
   },
   fixedtext:{
