@@ -31,9 +31,9 @@ export default function Product(props) {
   return (
     <View>
       <View style={styles.productbox}>
-        <View style={styles.product}>
+        <TouchableOpacity activeOpacity={0.8}  style={styles.product}>
         <Image style={styles.image} source={props.imageSource}/>
-        </View>
+        </TouchableOpacity>
         <View style={styles.discountbox}>
           <Text style={styles.discount}>{props.discount}</Text>
         </View>
@@ -48,18 +48,18 @@ export default function Product(props) {
         </View>
       </View>
       <View style={styles.flex}>
-        <View style={styles.productsection}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.productsection}>
           <Text style={styles.productname}>{props.productname}</Text>
           <Text style={styles.category}>{props.category}</Text>
           <View style={styles.flex}>
             <Text style={styles.discountprice}>{props.discountprice}</Text>
             <Text style={styles.originalprice}>{props.actualprice}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
         <View>
-          <View style={styles.otpinput} >
+          <TouchableOpacity activeOpacity={0.8}  style={styles.otpinput}>
           <Feather name="shopping-cart" size={18} color="#646464" style={styles.carticon}  />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 

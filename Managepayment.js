@@ -430,7 +430,7 @@ paypalbutton: {
     paddingLeft: 10,
   },
   halfinputfield: {
-    width: "45%",
+    width: "43%",
     height: 40,
     backgroundColor: "white",
     borderWidth: 1,

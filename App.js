@@ -49,7 +49,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Managepayment" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Viewproduct" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
