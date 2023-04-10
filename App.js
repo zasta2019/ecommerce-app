@@ -40,6 +40,7 @@ import Productdetails from './Productdetails';
 import Payment from './Payment';
 import Viewproduct from './Viewproduct';
 import Managepayment from './Managepayment';
+import Selectaddress from './Selectaddress';
 
 
 
@@ -49,7 +50,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Productlisting" screenOptions={{headerShown:false}}>
+      <Stack.Navigator initialRouteName="Selectaddress" screenOptions={{headerShown:false}}>
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Password" component={Password} />
@@ -62,6 +63,7 @@ function App() {
         <Stack.Screen name="Product" component={Product} />
         <Stack.Screen name="Men" component={Men} />
         <Stack.Screen name="Myorder" component={Myorder} />
+        <Stack.Screen name="Selectaddress" component={Selectaddress} />
         <Stack.Screen name="Women" component={Women} />
         <Stack.Screen name="Mycart" component={Mycart} />
         <Stack.Screen name="Payment" component={Payment} />

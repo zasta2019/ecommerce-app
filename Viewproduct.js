@@ -805,7 +805,23 @@ const styles = StyleSheet.create({
     padding: 6,
     alignItems: "center",
     borderRadius: 5,
-    marginTop: 4
+    marginTop: 4,
+  },
+  reviewrating: {
+    fontFamily: "Lato-Bold",
+    fontSize: 16,
+    marginLeft: 5,
+    color: "white",
+  },
+  reviewratingcontent: {
+    backgroundColor: "#4CAF50",
+    flexDirection: "row",
+    padding: 6,
+    width:50,
+    alignItems: "center",
+    marginLeft:8,
+    borderRadius: 5,
+    marginTop: 5,
   },
   ratingbox: {
     flexDirection: "row",
@@ -991,23 +1007,6 @@ const styles = StyleSheet.create({
   },
   reviewclient: {
     flexDirection: "row",
-  },
-  reviewrating: {
-    fontFamily: "Lato-Bold",
-    fontSize: 16,
-    alignItems: "center",
-    marginLeft: 6,
-    color: "white",
-  },
-  reviewratingcontent: {
-    backgroundColor: "#4CAF50",
-    flexDirection: "row",
-    padding: 6,
-    alignItems: "center",
-    width: 50,
-    borderRadius: 5,
-    marginTop: 7,
-    marginLeft: 10,
   },
   review: {
     fontFamily: "Roboto",
