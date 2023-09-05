@@ -38,7 +38,7 @@ export default class Kids extends React.Component {
       <View style={styles.flex}>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/baby-girl.jpg')}/>
       <Text style={styles.categoryname}>Girls</Text>
       </Pressable>
@@ -46,7 +46,7 @@ export default class Kids extends React.Component {
       </View>
       <View>
     <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
      <Image style={styles.category} source={require('./assets/baby-boy.jpg')}/>
       <Text style={styles.categoryname}>Boys</Text>
      </Pressable>
@@ -54,7 +54,7 @@ export default class Kids extends React.Component {
       </View>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/baby.jpg')}/>
       <Text style={styles.categoryname}>Babies</Text>
       </Pressable>
@@ -64,7 +64,7 @@ export default class Kids extends React.Component {
       <View style={styles.flexsecond}>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/family.jpg')}/>
       <Text style={styles.categoryname}>Family Looks</Text>
       </Pressable>
@@ -76,9 +76,9 @@ export default class Kids extends React.Component {
 <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/kidsbanner.jpg')}/>
   </View>
-  <View style={styles.bannerbox}>
+  {/* <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/banner.jpg')}/>
-  </View>
+  </View> */}
   <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/menbanner.jpg')}/>
   </View>

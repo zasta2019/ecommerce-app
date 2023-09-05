@@ -9,6 +9,7 @@ export default function Expiredcoupons(props) {
     "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),
     "Lato-Bold": require('../assets/font/Lato-Bold.ttf'),
   });
+  
   useEffect(() => {
     async function prepare() {
       await SplashScreen.preventAutoHideAsync();

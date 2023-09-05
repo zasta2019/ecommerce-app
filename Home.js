@@ -58,9 +58,9 @@ export default class Home extends React.Component {
       </View>
      <View>
 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-<View style={styles.bannerbox}>
+{/* <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/banner.jpg')}/>
-  </View>
+  </View> */}
   <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/menbanner.jpg')}/>
   </View>
@@ -73,7 +73,7 @@ export default class Home extends React.Component {
 </ScrollView>
      </View>
      <View>
-        <Text style={styles.subheading}>Why Flaunt Green?</Text>
+        <Text style={styles.subheading}>Why Zasta Infotec?</Text>
         <View style={styles.backColor}>
          <View style={styles.specification}>
           <View style={styles.specbox}>
@@ -95,7 +95,9 @@ export default class Home extends React.Component {
         <Text style={styles.subheading}>Today Deals for You</Text>
         <View style={styles.productlisting}>
          <View style={styles.flexproduct}>
+         <Pressable>
          <Product productname="Nike T-shirts" category="Men T-shirts collection" discount="-30%" discountprice="$799" actualprice="$999" imageSource={require("./assets/product.jpg")}/>
+         </Pressable>
          <Product productname="Puma T-shirts" category="Men T-shirts collection" discount="-50%" discountprice="$599" actualprice="$899" imageSource={require("./assets/menproduct.jpg")}/>
          </View>
         </View>

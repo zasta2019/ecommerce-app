@@ -36,8 +36,8 @@ export default function Login(props) {
     <ScrollView style={styles.maincontainer}>
     <View>
       <View style={styles.flexrow}>
-        <Image style={styles.logo} source={require('./assets/logo.jpg')} />
-        <Image style={styles.circle} source={require('./assets/circle.png')} />
+        <Image style={styles.logo} source={require('./assets/logo.png')} />
+        {/* <Image style={styles.circle} source={require('./assets/circle.png')} /> */}
       </View>
       <View>
         <Text style={styles.loginheading}>Login to your account</Text>
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   logo: {
-    width: 224,
-    height: 114,
+    width: 150,
+    height: 80,
     marginTop: 60,
     marginRight: 20,
   },
@@ -181,6 +181,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "700",
     marginLeft: 40,
+    marginTop:15,
     color: "#323232",
   },
   optiontext: {

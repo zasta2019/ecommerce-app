@@ -38,7 +38,7 @@ export default class Men extends React.Component {
       <View style={styles.flex}>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/tshirts.jpg')}/>
       <Text style={styles.categoryname}>T-shirts</Text>
       </Pressable>
@@ -46,7 +46,7 @@ export default class Men extends React.Component {
       </View>
       <View>
     <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
      <Image style={styles.category} source={require('./assets/underwear.jpg')}/>
       <Text style={styles.categoryname}>underwear</Text>
      </Pressable>
@@ -54,7 +54,7 @@ export default class Men extends React.Component {
       </View>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/denim.jpg')}/>
       <Text style={styles.categoryname}>Denim</Text>
       </Pressable>
@@ -64,7 +64,7 @@ export default class Men extends React.Component {
       <View style={styles.flex}>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/outwear.jpg')}/>
       <Text style={styles.categoryname}>Outwear</Text>
       </Pressable>
@@ -72,7 +72,7 @@ export default class Men extends React.Component {
       </View>
       <View>
     <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
      <Image style={styles.category} source={require('./assets/bottom.jpg')}/>
       <Text style={styles.categoryname}>Bottom</Text>
      </Pressable>
@@ -80,7 +80,7 @@ export default class Men extends React.Component {
       </View>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/hoodies.jpg')}/>
       <Text style={styles.categoryname}>Hoodies</Text>
       </Pressable>
@@ -90,7 +90,7 @@ export default class Men extends React.Component {
       <View style={styles.flexsecond}>
       <View>
       <TouchableOpacity activeOpacity={0.6}>
-     <Pressable>
+     <Pressable  onPress={() => this.props.navigation.navigate("Productlisting")}>
       <Image style={styles.category} source={require('./assets/knitwear.jpg')}/>
       <Text style={styles.categoryname}>Knitwear</Text>
       </Pressable>
@@ -98,7 +98,7 @@ export default class Men extends React.Component {
       </View>
       <View>
     <TouchableOpacity activeOpacity={0.6}>
-     <Pressable style={styles.secondcategory}>
+     <Pressable style={styles.secondcategory}  onPress={() => this.props.navigation.navigate("Productlisting")}>
      <Image style={styles.category} source={require('./assets/co-ords.jpg')}/>
       <Text style={styles.categoryname}>Co-ords</Text>
      </Pressable>
@@ -110,9 +110,9 @@ export default class Men extends React.Component {
 <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/menbanner.jpg')}/>
   </View>
-  <View style={styles.bannerbox}>
+  {/* <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/banner.jpg')}/>
-  </View>
+  </View> */}
   <View style={styles.bannerbox}>
   <Image style={styles.banner} source={require('./assets/womenbanner.jpg')}/>
   </View>

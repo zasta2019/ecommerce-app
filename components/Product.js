@@ -29,6 +29,7 @@ export default function Product(props) {
   }
 
   return (
+    <Pressable>
     <View>
       <View style={styles.productbox}>
         <TouchableOpacity activeOpacity={0.8}  style={styles.product}>
@@ -47,7 +48,7 @@ export default function Product(props) {
           />
         </View>
       </View>
-      <View style={styles.flex}>
+     <View style={styles.flex}>
         <TouchableOpacity activeOpacity={0.8} style={styles.productsection}>
           <Text style={styles.productname}>{props.productname}</Text>
           <Text style={styles.category}>{props.category}</Text>
@@ -65,7 +66,7 @@ export default function Product(props) {
 
 
     </View>
-
+</Pressable>
   );
 };
 
