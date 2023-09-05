@@ -13,6 +13,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
 import { ProgressBar} from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
+
 
 const images = [
   require('./assets/productview.jpg'),
@@ -22,6 +24,13 @@ const images = [
 ];
 
 const Viewproduct = (props) => {
+
+  const navigation = useNavigation();
+
+  const handleNavigate = () => {
+    // Use navigation.navigate or other navigation methods here
+    navigation.navigate('Selectaddress');
+  };
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modal1Visible, setModal1Visible] = useState(false);
@@ -275,7 +284,7 @@ const Viewproduct = (props) => {
               </View>
               <TouchableOpacity activeOpacity={0.6}>
                 <Pressable style={styles.button}>
-                  <TouchableOpacity activeOpacity={0.6}>
+                  <TouchableOpacity activeOpacity={0.6} onPress={handleNavigate}>
                     <Text style={styles.text}>Done</Text>
                   </TouchableOpacity>
                 </Pressable>

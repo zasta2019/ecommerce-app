@@ -216,7 +216,7 @@ export default function Managepayment(props) {
     </ScrollView>
     <View>
     <Pressable style={styles.button}>
-                  <TouchableOpacity activeOpacity={0.6}>
+                  <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Mycart")}>
                     <Text style={styles.text}>Proceed to Payment</Text>
                   </TouchableOpacity>
                 </Pressable>

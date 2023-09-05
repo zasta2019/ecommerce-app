@@ -20,10 +20,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.venkateshwaran01.app"
     },
     "web": {
       "favicon": "./assets/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dd871d43-b42f-424c-b984-8a5a47ffca58"
+      }
     }
   }
 }

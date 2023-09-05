@@ -79,7 +79,7 @@ export default function Paymentsuccess(props) {
               </View>
               <View style={styles.flexbutton}>
                 <Pressable style={styles.button}>
-                  <TouchableOpacity activeOpacity={0.6}>
+                  <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Orderdetails")}>
                     <Text style={styles.text}>Order Details</Text>
                   </TouchableOpacity>
                 </Pressable>

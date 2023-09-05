@@ -32,7 +32,7 @@ export default function Address(props) {
     <ScrollView style={styles.maincontainer}>
       <View>
       <View>
-      <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Home")}>
+      <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Selectaddress")}>
             <Image style={styles.back} source={require('./assets/back.png')} />
           </TouchableOpacity>
         <Text style={styles.heading}>Add New Address Details</Text>
@@ -63,7 +63,7 @@ export default function Address(props) {
         </View>
      </View>
      <View style={styles.flex}>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} >
       <TouchableOpacity activeOpacity={0.6}>
         <Text style={styles.text}>Save</Text>
         </TouchableOpacity>

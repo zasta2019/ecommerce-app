@@ -6,8 +6,17 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Product(props) {
+
+  const navigation = useNavigation();
+
+  const handleNavigate = () => {
+    // Use navigation.navigate or other navigation methods here
+    navigation.navigate('Viewproduct');
+  };
+
   const [isFilled, setIsFilled] = useState(false);
   const [fontsLoaded] = useFonts({
     "Lato-Regular": require('../assets/font/Lato-Regular.ttf'),
@@ -49,7 +58,7 @@ export default function Product(props) {
         </View>
       </View>
      <View style={styles.flex}>
-        <TouchableOpacity activeOpacity={0.8} style={styles.productsection}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.productsection}  onPress={handleNavigate}>
           <Text style={styles.productname}>{props.productname}</Text>
           <Text style={styles.category}>{props.category}</Text>
           <View style={styles.flex}>
@@ -58,7 +67,7 @@ export default function Product(props) {
           </View>
         </TouchableOpacity>
         <View>
-          <TouchableOpacity activeOpacity={0.8}  style={styles.otpinput}>
+          <TouchableOpacity activeOpacity={0.8}  style={styles.otpinput}  onPress={handleNavigate}>
           <Feather name="shopping-cart" size={18} color="#646464" style={styles.carticon}  />
           </TouchableOpacity>
         </View>

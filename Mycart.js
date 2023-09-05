@@ -362,7 +362,7 @@ export default function Mycart(props) {
         <Text style={styles.selectedtext}>2 items are selected for order</Text>
         <Pressable style={styles.button}>
           <TouchableOpacity activeOpacity={0.6}>
-            <Text style={styles.text} onPress={() => props.navigation.navigate("Payment")}>Go to Checkout</Text>
+            <Text style={styles.text} onPress={() => props.navigation.navigate("Paymentsuccess")}>Go to Checkout</Text>
           </TouchableOpacity>
         </Pressable>
       </View>

@@ -69,7 +69,7 @@ export default function Manageaddress(props) {
                         </View>
                     </Modal>
                     <View>
-                        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Home")}>
+                        <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Viewproduct")}>
                             <Image style={styles.back} source={require('./assets/back.png')} />
                         </TouchableOpacity>
                         <Text style={styles.heading}>Delivery Address</Text>
@@ -161,7 +161,7 @@ export default function Manageaddress(props) {
             </ScrollView>
             <View>
                 <Pressable style={styles.selectbutton}>
-                    <TouchableOpacity activeOpacity={0.6}>
+                    <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate("Managepayment")}>
                         <Text style={styles.selecttext}>Deliver to this Address</Text>
                     </TouchableOpacity>
                 </Pressable>
