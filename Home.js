@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import Product from './components/Product';
 import * as Font from 'expo-font';
+import Main from './components/Main';
 
 let customFonts = {
   "Lato-Regular": require('./assets/font/Lato-Regular.ttf'),
@@ -27,7 +28,9 @@ export default class Home extends React.Component {
       return null;
     }
   return (
-    <ScrollView style={styles.maincontainer}>
+    <View style={styles.container}>
+     <Main />
+     <ScrollView style={styles.maincontainer} contentContainerStyle={styles.contentContainer}>
       <View>
         <Text style={styles.heading}>Fashion Categories</Text>
       <View style={styles.flex}>
@@ -104,15 +107,22 @@ export default class Home extends React.Component {
         </View>
       </View>
     </ScrollView>
+   </View>
   );
 }
 }
 
 const styles = StyleSheet.create({
-    maincontainer: {
-        backgroundColor: "white",
-        height: "100%",
-      },
+  container: {
+    flex: 1,
+  },
+  maincontainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  contentContainer: {
+    flexGrow: 1, 
+  },
       bannerbox:{
         width:340,
         height:160,

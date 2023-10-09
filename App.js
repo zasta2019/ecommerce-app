@@ -41,7 +41,7 @@ import Payment from './Payment';
 import Viewproduct from './Viewproduct';
 import Managepayment from './Managepayment';
 import Selectaddress from './Selectaddress';
-
+import Profiledetails from './Profiledetails';
 
 
 
@@ -90,6 +90,7 @@ function App() {
         <Stack.Screen name="Orderdetails" component={Orderdetails} />
         <Stack.Screen name="Ordersummary" component={Ordersummary} />
         <Stack.Screen name="Paymentfailed" component={Paymentfailed} />
+        <Stack.Screen name="Profiledetails" component={Profiledetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
