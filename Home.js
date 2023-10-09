@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, TouchableOpacity, ScrollView } from 'react-native';
 import Product from './components/Product';
 import * as Font from 'expo-font';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Main from './components/Main';
 
 let customFonts = {
@@ -32,6 +33,14 @@ export default class Home extends React.Component {
      <Main />
      <ScrollView style={styles.maincontainer} contentContainerStyle={styles.contentContainer}>
       <View>
+             <View>
+             <TextInput style={styles.inputfield}
+               placeholder="Search here"
+               placeholderTextColor="#646464"
+             />
+             <Icon name="search" style={styles.searchIcon} />
+             <Icon name="microphone" style={styles.mick} />
+           </View>
         <Text style={styles.heading}>Fashion Categories</Text>
       <View style={styles.flex}>
       <View>
@@ -201,4 +210,30 @@ const styles = StyleSheet.create({
         justifyContent:"space-evenly",
         marginTop:15,
       },
+        inputfield: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    width: "90%",
+    alignSelf:"center",
+    paddingLeft:33,
+    marginTop:20,
+    borderColor:"#969696",
+    borderWidth:1,
+    paddingRight:33,
+    height: 40,
+  },
+  searchIcon: {
+    position: 'absolute',
+    left: 25,
+    top: 30,
+    fontSize: 18,
+    color: '#858E93',
+  },
+  mick: {
+    position: 'absolute',
+    right: 27,
+    top: 30,
+    fontSize: 20,
+    color: '#858E93',
+  },
 });
