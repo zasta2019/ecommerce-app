@@ -317,6 +317,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Header(props) {
@@ -387,6 +388,14 @@ const screenHeight = Dimensions.get('window').height;
 </View>
 </View>
      </View>
+     <View>
+             <TextInput style={styles.inputfield}
+               placeholder="Search here"
+               placeholderTextColor="#646464"
+             />
+             <Icon name="search" style={styles.searchIcon} />
+             <Icon name="microphone" style={styles.mick} />
+           </View>
     </View>
   );
 }
@@ -434,6 +443,32 @@ notificationIndicator: {
     color: 'white', // You can set the text color
     fontSize: 14, // Adjust this to your preference
     textAlign:"center",
+  },
+  inputfield: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    width: "100%",
+    alignSelf:"center",
+    paddingLeft:33,
+    marginTop:10,
+    borderColor:"#969696",
+    borderWidth:1,
+    paddingRight:33,
+    height: 40,
+  },
+  searchIcon: {
+    position: 'absolute',
+    left: 10,
+    top: 20,
+    fontSize: 18,
+    color: '#858E93',
+  },
+  mick: {
+    position: 'absolute',
+    right: 10,
+    top: 20,
+    fontSize: 20,
+    color: '#858E93',
   },
 });
 
